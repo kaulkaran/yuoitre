@@ -11,7 +11,10 @@ connectDB();
 
 // Middleware
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin: ["https://harmonious-pixie-d4b92d.netlify.app"], // Allow only your frontend
+    methods: "GET,POST,PUT,DELETE",
+}));
 
 // Routes
 const checkMarksRoutes = require("./routes/checkMarks");
